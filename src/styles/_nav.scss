@@ -1,0 +1,23 @@
+.nav {
+  padding: 1em 0;
+}
+
+.nav--flex {
+  display: flex;
+  justify-content: center;
+}
+
+.nav__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.5em;
+}
+
+.nav__text--left {
+  padding-left: 0.25em;
+}
+
+.nav__text--right {
+  padding-right: 0.25em;
+}

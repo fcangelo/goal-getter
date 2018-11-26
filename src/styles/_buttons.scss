@@ -1,0 +1,40 @@
+.button {
+  position: relative;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  background: none;
+  background-color: $accent;
+  color: $light;
+  border: none;
+  padding: 0.5em 1.25em;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 0.25em;
+  font-size: 1.1em;
+  box-shadow: 0.2em 0.2em 0 0 $accent-dark;
+  transition: box-shadow $default-time-ease, transform $default-time-ease;
+
+  &:hover {
+    box-shadow: 0.1em 0.1em 0 0 $accent-dark;
+    transform: translate(0.1em, 0.1em);
+  }
+
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 0 $accent-dark;
+    transform: translate(0.2em, 0.2em);
+  }
+}
+
+.button--large {
+  margin: 2em 0;
+  padding: 1em 2.5em;
+  font-size: 1.2em;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h1,
+h2 {
+  font-family: 'Montserrat',
+    sans-serif;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+}
+
+h1.paragraph,
+h2.paragraph,
+h3.paragraph,
+h4.paragraph,
+h5.paragraph,
+h6.paragraph {
+  margin: 0;
+  // padding: 0;
+  text-align: left;
+}
+
+ul>li,
+ol>li {
+  padding: 0.25em;
+}

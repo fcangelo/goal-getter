@@ -1,0 +1,15 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1em;
+  // margin: 1em;
+}
+
+.App__title {
+  flex: 0 0 auto;
+}
+
+.App__body {
+  flex: 1 1 auto;
+}

@@ -1,0 +1,51 @@
+// Remove default focus outline
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.input {
+  font: inherit;
+  outline: none;
+  user-select: none;
+  background: none;
+  background-color: $light-part;
+  color: $dark;
+  border: 0.25em solid transparent;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  transition: $default-trans-all;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $light;
+    color: $black;
+  }
+
+  &:active,
+  &:focus {
+    border: 0.25em solid $accent;
+  }
+}
+
+.input.block {
+  display: block;
+  // margin: 0.75em 0;
+  margin: 0.375em 0;
+  width: 100%;
+}
+
+.input.block.add {
+  width: 10em;
+  background-color: $accent;
+
+  &::placeholder {
+    color: $light;
+    text-align: center;
+  }
+}

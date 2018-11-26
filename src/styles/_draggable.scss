@@ -1,0 +1,23 @@
+.draggable {
+  display: flex;
+}
+
+.draggable__handle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+
+  svg {
+    transform: translateX(-25%);
+  }
+}
+
+.draggable__handle--disabled {
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.draggable__content {
+  flex: 1 1 auto;
+}

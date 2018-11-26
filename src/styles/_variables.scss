@@ -1,0 +1,16 @@
+// Colors
+$black: #000000;
+$dark: #242832;
+$light: #ffffff;
+$accent: #ff4070;
+$accent-dark: #a62949;
+$light-part: rgba(255, 255, 255, 0.75);
+$light-tint: rgba(255, 255, 255, 0.075);
+
+// Timing
+$default-time: 100ms;
+$slow-time: 500ms;
+$default-ease: ease-in-out;
+$default-time-ease: #{$default-time + " " + $default-ease};
+$slow-time-ease: #{$slow-time + " " + $default-ease};
+$default-trans-all: all $default-time-ease;

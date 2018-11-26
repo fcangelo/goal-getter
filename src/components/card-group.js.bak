@@ -1,0 +1,52 @@
+import React, { Component } from 'react';
+import NavPage from './nav-page';
+import Card from './card';
+import TextInput from './text-input';
+import {
+  arrObjConform,
+  EmptyProblem,
+  getArrWithFirst
+} from '../scripts/utilities';
+
+class CardGroup extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isCardOpen: [],
+    };
+  }
+
+  componentDidMount() {
+    this.props.runOnMount();
+    this.setState((state, props) => ({
+      isCardOpen: getArrWithFirst(props.cardData.length, false, true),
+    }));
+  }
+
+  onCardChange(card) {
+    let newCardState = this.state.isCardOpen.slice();
+
+    newCardState[card] = !newCardState[card];
+
+    this.setState({
+      isCardOpen: newCardState,
+    });
+  }
+
+  render() {
+    return (
+      <NavPage
+        pageNumber={this.props.pageNumber}
+        header={this.props.header}
+        subHeader={this.props.subHeader}
+        backName={this.props.backName}
+        forwardName={this.props.forwardName}
+        handleNav={this.props.onPageChange}
+      >
+        {this.props.children}
+      </NavPage>
+    );
+  }
+}
+
+export default CardGroup;

@@ -3,9 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "file-saver": "^2.0.0-rc.4",
+    "mdi-react": "^5.0.0",
+    "node-sass": "^4.10.0",
     "react": "^16.6.1",
+    "react-animate-height": "^2.0.7",
     "react-dom": "^16.6.1",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "react-sortable-hoc": "^0.8.4",
+    "react-toastify": "^4.4.3",
+    "react-transition-group": "^2.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
