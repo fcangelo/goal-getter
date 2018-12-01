@@ -10,6 +10,26 @@ export function EmptyProblem() {
   };
 }
 
+export function FileType(type, mime, ext) {
+  return {
+    type: type,
+    mime: mime,
+    ext:  ext || type,
+  };
+}
+
+export function FileTypes(typeArr) {
+  let retObj = {};
+
+  for (let i = 0; i < typeArr.length; i++) {
+    const fileType = typeArr[i];
+
+    retObj[fileType.type] = fileType;
+  }
+
+  return retObj;
+}
+
 export function getArrWithFirst(len, fill, first) {
   let retArr = getArrWith(len, fill);
 

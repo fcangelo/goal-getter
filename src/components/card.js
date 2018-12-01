@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AnimateHeight from 'react-animate-height';
 import ArrowDropDownCircle from 'mdi-react/MenuDownIcon';
+import CardHeader from './card-header';
 
 class Card extends Component {
   constructor(props) {
@@ -23,9 +24,10 @@ class Card extends Component {
     return (
       <div className={`card${cardOpenClass}`}>
         <div className="above-the-fold">
-          <h3 className="paragraph">
-            {this.props.aboveFold}
-          </h3>
+          <CardHeader
+            headerMain={this.props.aboveFoldMain}
+            headerSub={this.props.aboveFoldSub}
+          />
           <div
             className="expander"
             onClick={() => this.onCardChange()}

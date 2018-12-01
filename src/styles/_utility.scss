@@ -13,3 +13,12 @@
 .single-item {
   margin: 5em 0;
 }
+
+.faded {
+  opacity: 0.5;
+  transition: opacity $slow-time-ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}

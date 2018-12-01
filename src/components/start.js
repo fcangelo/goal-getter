@@ -39,7 +39,7 @@ class Start extends Component {
     return (
       <Page
         pageNumber={this.props.pageNumber}
-        header={"Resolve Issues Blocking Your Progress"}
+        header={"Find Solutions to Roadblocks Standing in the Way of Goals"}
         subHeader={"Start New Session or Import a Previous One"}
       >
         <Explain />

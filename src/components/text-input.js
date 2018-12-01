@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TextareaAutosize from 'react-autosize-textarea';
 
 class TextInput extends Component {
   constructor(props) {
@@ -19,13 +20,22 @@ class TextInput extends Component {
     const hasPrePlaceholder = (!this.state.hasBeenFocused && this.props.preFocusPlaceholder);
 
     return (
-      <input
-        type="text"
+      // <input
+      //   type="text"
+      //   id={this.props.id}
+      //   className={`input block${(!this.state.hasBeenFocused) ? preFocusClassValue : ''}`}
+      //   placeholder={(hasPrePlaceholder) ? this.props.preFocusPlaceholder : this.props.placeholder}
+      //   value={this.props.value}
+      //   data={this.props.data}
+      //   onFocus={() => this.markFocused()}
+      //   onChange={this.props.onChange}
+      //   // autoFocus={this.props.isFocused} // This breaks the sliding motion
+      // />
+      <TextareaAutosize
         id={this.props.id}
         className={`input block${(!this.state.hasBeenFocused) ? preFocusClassValue : ''}`}
         placeholder={(hasPrePlaceholder) ? this.props.preFocusPlaceholder : this.props.placeholder}
         value={this.props.value}
-        data={this.props.data}
         onFocus={() => this.markFocused()}
         onChange={this.props.onChange}
         // autoFocus={this.props.isFocused} // This breaks the sliding motion

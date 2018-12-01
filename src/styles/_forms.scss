@@ -38,6 +38,7 @@ button:focus {
   // margin: 0.75em 0;
   margin: 0.375em 0;
   width: 100%;
+  resize: none;
 }
 
 .input.block.add {
@@ -47,5 +48,29 @@ button:focus {
   &::placeholder {
     color: $light;
     text-align: center;
+  }
+}
+
+.controls {
+  margin: 1em;
+}
+
+.form-radio-group {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+
+  * {
+    color: $accent !important;
+  }
+
+  legend {
+    display: none;
+    text-align: center;
+    padding: 0.5em;
+  }
+
+  span {
+    padding: 0.1em;
   }
 }

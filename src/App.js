@@ -7,7 +7,7 @@ import {
   CSSTransition,
   TransitionGroup,
 } from 'react-transition-group';
-import BlockResolver from './components/block-resolver';
+import GoalGetter from './components/goal-getter';
 import * as utils from './scripts/utilities';
 import './styles/main.scss';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -44,7 +44,7 @@ class App extends Component {
       resolve: this.prepare(resolveState, 0),
     };
 
-    return JSON.stringify(obj);
+    return obj;
   }
 
   getDefaultInputs() {
@@ -71,7 +71,7 @@ class App extends Component {
         resolve: this.condense(imported),
       });
     } catch (error) {
-      this.notify('Does not contain Block Resolver data', 'error');
+      this.notify('Does not contain GoalGetter data', 'error');
     }
   }
 
@@ -91,20 +91,24 @@ class App extends Component {
     let retArr = utils.arrObjCondense(resolveState, utils.EmptyGoal, addExtra);
 
     for (let i = 0; i < retArr.length; i++) {
-      const blocks = (retArr[i].blocks !== undefined) ? retArr[i].blocks : [];
+      const roadblocks = (retArr[i].roadblocks !== undefined) ? retArr[i].roadblocks : [];
 
-      retArr[i].blocks = utils.arrObjCondense(blocks, utils.EmptyProblem, addExtra);
+      retArr[i].roadblocks = utils.arrObjCondense(roadblocks, utils.EmptyProblem, addExtra);
 
-      for (let j = 0; j < retArr[i].blocks.length; j++) {
-        const hasSolutions = (retArr[i].blocks[j].solutions !== undefined);
-        const solutions = (hasSolutions) ? retArr[i].blocks[j].solutions : [];
+      for (let j = 0; j < retArr[i].roadblocks.length; j++) {
+        const hasSolutions = (retArr[i].roadblocks[j].solutions !== undefined);
+        const solutions = (hasSolutions) ? retArr[i].roadblocks[j].solutions : [];
         const condensedSolutions = utils.arrCondense(solutions, addExtra);
 
         if (condensedSolutions.length > 0) {
-          retArr[i].blocks[j].solutions = condensedSolutions;
+          retArr[i].roadblocks[j].solutions = condensedSolutions;
         } else if (hasSolutions && condensedSolutions.length === 0) {
-          delete retArr[i].blocks[j].solutions;
+          delete retArr[i].roadblocks[j].solutions;
         }
+      }
+
+      if (retArr[i].roadblocks.length === 0) {
+        delete retArr[i].roadblocks;
       }
     }
 
@@ -133,7 +137,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1 className="App__title">Block Resolver</h1>
+        <h1 className="App__title">GoalGetter</h1>
         {/* Maybe focus textbox on done? */}
         <TransitionGroup className={`App__body page-slider${navDir}`}>
           <CSSTransition
@@ -141,7 +145,7 @@ class App extends Component {
             timeout={500}
             classNames="slide"
           >
-            <BlockResolver
+            <GoalGetter
               page={this.state.page}
               resolve={this.state.resolve}
               onPageChange={(page) => this.turnPage(page)}

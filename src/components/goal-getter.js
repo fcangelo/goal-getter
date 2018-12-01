@@ -1,11 +1,11 @@
 import React from 'react';
 import Start from './start';
 import Goals from './goals';
-import Blocks from './blocks';
+import Roadblocks from './roadblocks';
 import Solutions from './solutions';
 import Summary from './summary';
 
-function BlockResolver(props) {
+function GoalGetter(props) {
   if (props.page === 2) {
     return (
       <Goals
@@ -19,7 +19,7 @@ function BlockResolver(props) {
   } else if (props.page === 3) {
     return (
       // Clean what is being passed in
-      <Blocks
+      <Roadblocks
         pageNumber={props.page}
         onPageChange={props.onPageChange}
         resolve={props.resolve}
@@ -66,4 +66,4 @@ function BlockResolver(props) {
   );
 }
 
-export default BlockResolver;
+export default GoalGetter;

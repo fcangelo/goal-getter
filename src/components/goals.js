@@ -65,7 +65,7 @@ class Goals extends Component {
         header={"Goals"}
         subHeader={"Start by creating a list of your goals:"}
         backName={"Start Page"}
-        forwardName={"Goal Blocks"}
+        forwardName={"Goal Roadblocks"}
         handleNav={this.props.onPageChange}
       >
         <SortableTextGroup

@@ -18,10 +18,23 @@
 .card > .above-the-fold {
   position: relative;
 
-  .paragraph {
-    font-size: 1.5em;
-    padding: 1em 1.5em 1em 0;
-  }
+  // .paragraph {
+  //   font-size: 1.5em;
+  //   padding: 1em 1.5em 1em 0;
+  // }
+}
+
+.card__header {
+  padding: 1em 1.5em 1em 0;
+}
+
+.card__header-main {
+  font-size: 1.5em;
+  padding-bottom: 0.75em;
+}
+
+.card__header-sub {
+  font-size: 1.35em;
 }
 
 .expander {

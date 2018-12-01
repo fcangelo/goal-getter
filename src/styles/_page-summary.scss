@@ -6,12 +6,48 @@
   background-color: $light-tint;
   padding: 1em;
   border-radius: 0.25em;
+  text-transform: uppercase;
 }
 
 .summary__body {
-  margin: 1.5em 0 0 0;
+  margin: 1.5em 0 0 1.5em;
 
-  ul {
-    margin: 0;
+  // ul {
+  //   margin: 0;
+  // }
+}
+
+.rb-sol {
+  margin: 1em 0;
+}
+
+.rb-sol__header {
+  font-size: 1.25em;
+  margin-bottom: 1em;
+}
+
+.rb-sol__body {
+  display: table;
+  margin: 0;
+  padding: 1em 1em 0 1em;
+  color: $light;
+  font-size: 1.15em;
+  list-style: none;
+
+  li {
+    display: table-row;
+
+    & > span {
+      display: table-cell;
+
+      &:nth-child(2) {
+        padding: 0.375em;
+        text-align: right;
+      }
+    }
   }
+}
+
+.sum-pad {
+  margin: 1em 0 1em 1em;
 }

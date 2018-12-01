@@ -10,17 +10,17 @@ import SortableTextGroup from './Sortable/sortable-text-group';
 import SortableTextInput from './Sortable/sortable-text-input';
 import { arrayMove } from 'react-sortable-hoc';
 
-class Blocks extends Component {
+class Roadblocks extends Component {
   componentDidMount() {
     this.props.onResolveCondense();
   }
 
   getCurData(resolve, target) {
     let curData = resolve.slice();
-    let curBlocks = curData[target.resolveId].blocks;
+    let curRoadblocks = curData[target.resolveId].roadblocks;
 
-    curBlocks[target.id].problem = target.value;
-    curData[target.resolveId].blocks = arrObjConform(curBlocks, EmptyProblem, this.props.defaultInputs);
+    curRoadblocks[target.id].problem = target.value;
+    curData[target.resolveId].roadblocks = arrObjConform(curRoadblocks, EmptyProblem, this.props.defaultInputs);
 
     return curData;
   }
@@ -38,7 +38,7 @@ class Blocks extends Component {
   onSortEnd(moveObj, mouseEvent, resolveId) {
     let retResolve = this.props.resolve;
 
-    retResolve[resolveId].blocks = arrayMove(retResolve[resolveId].blocks, moveObj.oldIndex, moveObj.newIndex);
+    retResolve[resolveId].roadblocks = arrayMove(retResolve[resolveId].roadblocks, moveObj.oldIndex, moveObj.newIndex);
     this.props.onResolveChange(retResolve);
   }
 
@@ -46,29 +46,29 @@ class Blocks extends Component {
     const resolveList = this.props.resolve;
     let resolveListInputs = resolveList.map((resolve, resolveId) => {
       if (resolve.goal) {
-        const blockList = (resolve.blocks) ? resolve.blocks : []; // emptyArrStart(EmptyProblem, 2)
-        const blocks = blockList.map((block, blockId) => {
-          const isFirstEmpty = ((blockId === 0) && !block.problem);
-          const isLastEmpty = ((blockId === blockList.length - 1) && !block.problem);
+        const roadblockList = (resolve.roadblocks) ? resolve.roadblocks : []; // emptyArrStart(EmptyProblem, 2)
+        const roadblocks = roadblockList.map((roadblock, roadblockId) => {
+          const isFirstEmpty = ((roadblockId === 0) && !roadblock.problem);
+          const isLastEmpty = ((roadblockId === roadblockList.length - 1) && !roadblock.problem);
 
           return (
             <SortableTextInput
-              key={`block-input-${blockId}`}
-              index={blockId}
-              inputId={blockId}
+              key={`roadblock-input-${roadblockId}`}
+              index={roadblockId}
+              inputId={roadblockId}
               isFirstEmpty={isFirstEmpty}
               isLastEmpty={isLastEmpty}
-              placeholder={"Block"}
-              value={block.problem}
+              placeholder={"Roadblock"}
+              value={roadblock.problem}
               handleChange={(event) => this.handleChange(event, resolveId)}
               disabled={isLastEmpty}
             />
           );
         });
-        const blocksGroup = (
+        const roadblocksGroup = (
           <SortableTextGroup
             lockAxis={"y"}
-            textInputs={blocks}
+            textInputs={roadblocks}
             useDragHandle={true}
             onSortEnd={(moveObj, mouseEvent) => this.onSortEnd(moveObj, mouseEvent, resolveId)}
           />
@@ -77,8 +77,8 @@ class Blocks extends Component {
         return (
           <Card
             key={resolveId}
-            aboveFold={resolve.goal}
-            belowFold={blocksGroup}
+            aboveFoldMain={`Goal ${resolveId + 1}: ${resolve.goal}`}
+            belowFold={roadblocksGroup}
           />
         );
       }
@@ -87,16 +87,16 @@ class Blocks extends Component {
     });
 
     if (stripNullEmpty(resolveListInputs).length === 0) {
-      resolveListInputs = <h3 className="single-item">Add goals on the previous page to start adding associated blocks.</h3>;
+      resolveListInputs = <h3 className="single-item">Add goals on the previous page to start adding associated roadblocks.</h3>;
     }
 
     return (
       <NavPage
         pageNumber={this.props.pageNumber}
-        header={"Blocks"}
-        subHeader={"List barriers that are blocking stated goals:"}
+        header={"Roadblocks"}
+        subHeader={"List roadblocks standing in the way of stated goals:"}
         backName={"Goals"}
-        forwardName={"Block Solutions"}
+        forwardName={"Roadblock Solutions"}
         handleNav={this.props.onPageChange}
       >
         {resolveListInputs}
@@ -105,4 +105,4 @@ class Blocks extends Component {
   }
 }
 
-export default Blocks;
+export default Roadblocks;
