@@ -1,4 +1,4 @@
-# Goal Getter
+# GoalGetter
 ## Find Solutions to Roadblocks Standing in the Way of Goals
 
 This is a React app that guides users through the process of forming goals, identifying roadblocks,
