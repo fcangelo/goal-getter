@@ -38,3 +38,17 @@
   display: flex;
   justify-content: center;
 }
+
+.button--error {
+  background-color: $error;
+  box-shadow: 0.2em 0.2em 0 0 $error-alt;
+
+  &:hover {
+    box-shadow: 0.1em 0.1em 0 0 $error-alt;
+  }
+
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 0 $error-alt;
+  }
+}

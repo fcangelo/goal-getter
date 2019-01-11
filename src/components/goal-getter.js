@@ -62,6 +62,7 @@ function GoalGetter(props) {
       onImportPrevious={props.onImportPrevious}
       notify={props.notify}
       reset={props.reset}
+      isDefault={props.isDefault}
     />
   );
 }

@@ -11,11 +11,11 @@ import GoalGetter from './components/goal-getter';
 import * as utils from './scripts/utilities';
 import './styles/main.scss';
 import 'react-toastify/dist/ReactToastify.min.css';
-// import './App.css';
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
+
     this.state = {
       page: 1,
       navDirForward: true,
@@ -24,9 +24,18 @@ class App extends Component {
   }
 
   addToResolve(updResolve) {
-    this.setState({
+    this.onSetState({
       resolve: updResolve,
     });
+  }
+
+  componentDidMount() {
+    // The basic idea is from: https://www.robinwieruch.de/local-storage-react/
+    let savedResolve = localStorage.getItem('goal-getter');
+
+    if (savedResolve) {
+      this.setState(JSON.parse(savedResolve));
+    }
   }
 
   condense(resolveState) {
@@ -34,7 +43,7 @@ class App extends Component {
   }
 
   condenseResolve() {
-    this.setState({
+    this.onSetState({
       resolve: this.condense(this.state.resolve),
     });
   }
@@ -65,7 +74,7 @@ class App extends Component {
     try {
       const importResolve = this.getIsGoingForward(session.page);
 
-      this.setState({
+      this.onSetState({
         page: session.page,
         navDirForward: importResolve,
         resolve: this.condense(imported),
@@ -85,6 +94,10 @@ class App extends Component {
     }
 
     return toast(message);
+  }
+
+  onSetState(stateObj) {
+    this.setState(stateObj, this.setLocalStorage);
   }
 
   prepare(resolveState, addExtra) {
@@ -116,27 +129,36 @@ class App extends Component {
   }
 
   reset() {
-    if (!this.isDefault()) {
-      this.setState({
-        resolve: this.getEmptyStart(),
-      });
+    // // Uncomment this to add default object check
+    // if (!this.isDefault()) {
+    //   this.setState({
+    //     resolve: this.getEmptyStart(),
+    //   });
+    // }
 
-      this.notify('Data cleared');
-    }
+    this.setState({
+      resolve: this.getEmptyStart(),
+    });
+    localStorage.removeItem('goal-getter');
+    this.notify('Data cleared');
   }
 
   turnPage(to) {
-    this.setState({
+    this.onSetState({
       page: to,
       navDirForward: this.getIsGoingForward(to),
     });
+  }
+
+  setLocalStorage() {
+    localStorage.setItem('goal-getter', JSON.stringify(this.state));
   }
 
   render() {
     const navDir = (this.state.navDirForward) ? '' : ' back';
 
     return (
-      <div className="App">
+      <div className="App container container--max">
         <h1 className="App__title">GoalGetter</h1>
         {/* Maybe focus textbox on done? */}
         <TransitionGroup className={`App__body page-slider${navDir}`}>

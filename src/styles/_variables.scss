@@ -1,14 +1,18 @@
 // My Variables //
 
 // Colors
-$black: #000000;
-$dark: #242832;
-$light: #ffffff;
-$accent: #29B6F6; // #ff4070
+$black:       #000000;
+$dark:        #242832;
+$light:       #ffffff;
+$accent:      #29B6F6; // #ff4070
 $accent-dark: #0288D1; // #a62949
-$dark-alt: #90A0C8;
-$light-part: rgba(255, 255, 255, 0.75);
-$light-tint: rgba(255, 255, 255, 0.075);
+$accent-gray: #363C4B;
+$dark-alt:    #90A0C8;
+$error:       #f44336;
+$error-alt:   #b71c1c;
+$light-part:  rgba(255, 255, 255, 0.75);
+$light-tint:  rgba(255, 255, 255, 0.075);
+$dark-part:   rgba(36, 40, 50, 0.75);
 
 // Timing
 $default-time: 100ms;
@@ -17,3 +21,23 @@ $default-ease: ease-in-out;
 $default-time-ease: #{$default-time + " " + $default-ease};
 $slow-time-ease: #{$slow-time + " " + $default-ease};
 $default-trans-all: all $default-time-ease;
+
+/** Grid  */
+// Shamelessly borrowed from Bootstrap 4
+// https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
+// Breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+// Container
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);

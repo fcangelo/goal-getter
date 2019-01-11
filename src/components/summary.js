@@ -101,7 +101,9 @@ class Summary extends Component {
 
   render() {
     let visClass = (this.props.isDefault()) ? ' no-display' : '';
-    let retGoals = <h3 className="single-item">Enter some goals</h3>;
+    let retGoals =  <h3 className="single-item">
+                      Goals, roadblocks, and the solutions to those roadblocks will appear here once entered on the previous pages.
+                    </h3>;
     const resolveList = this.props.resolve;
     const resolveListResults = resolveList.map((resolve, resolveId) => {
       if (resolve.goal) {

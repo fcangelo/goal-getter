@@ -1,0 +1,38 @@
+.modal-overlay {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: $dark-part;
+}
+
+.modal {
+  // position: absolute;
+  // top: 3em;
+  // left: 3em;
+  // right: 3em;
+  // bottom: 3em;
+  // max-height: 16em;
+  // max-width: 32em;
+  border: 0.0625em solid $accent;
+  background-color: $accent-gray;
+  overflow: auto;
+  border-radius: 0.25em;
+  outline: none;
+  padding: 1.25em;
+}
+
+.modal__text {
+  padding: 1em;
+  line-height: 1.5;
+}
+
+.modal__buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
