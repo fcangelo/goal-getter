@@ -1,0 +1,3 @@
+# Disable EOL Conversions
+# https://stackoverflow.com/a/10017566
+* -text
